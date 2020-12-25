@@ -1,0 +1,89 @@
+PROCEDURE dot_product( size:INTEGER, v1,v2:ARRAY_OF INTEGER VAR ps:INTEGER)
+VAR
+    i:INTEGER;
+    ps:INTEGER;
+BEGIN
+    ps:=0;
+   FOR i FROM 0 TO size-1 STEP 1  DO
+   ps:=ps+v1[i]*v2[i];
+    END_FOR
+    
+END
+
+ALGORITHM CheckPoint_Doc
+VAR
+v1;v2 : ARRAY_OF INTEGER[]; 
+ size,n,ps: INTEGER;
+ 
+        
+   BEGIN
+   ps:=0;
+   REPEAT
+   read(n);
+   UNTIL (n mode 2 =0)
+
+   WHILE (n<>0) DO
+   read(size);
+    
+   FOR i FROM 0 TO size-1 STEP 1  DO
+   read(v1[i]);
+    END_FOR
+   
+ FOR i FROM 0 TO size-1 STEP 1  DO
+   read(v2[i]);
+    END_FOR
+    ps:=dot_product( size,v1,v2,ps);
+    IF (ps==0) THEN
+        write("The dot product of two orthogonal ")
+    END_IF
+
+ n:=n-2;
+ 
+   END_WHILE
+END
+
+
+   //algorithm if you use a dot_product function
+
+
+
+   FUNCTION dot_product(size,v1,v2) : INTEGER
+VAR
+     i:INTEGER;
+    ps:INTEGER;
+BEGIN
+ ps:=0;
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+   ps:=ps+v1[i]*v2[i];
+    END_FOR
+    RETURN ps ;
+END
+ALGORITHM CheckPoint_Doc
+VAR
+v1;v2 : ARRAY_OF INTEGER[]; 
+ size,n,ps: INTEGER;
+ 
+        
+   BEGIN
+   REPEAT
+   read(n);
+   UNTIL (n mode 2 =0)
+
+   WHILE (n<>0) DO
+   read(size);
+    
+   FOR i FROM 0 TO size-1 STEP 1  DO
+   read(v1[i]);
+    END_FOR
+   
+ FOR i FROM 0 TO size-1 STEP 1  DO
+   read(v2[i]);
+    END_FOR
+        IF (dot_product( size,v1,v2,ps)==0) THEN
+        write("The dot product of two orthogonal ")
+    END_IF
+
+ n:=n-2;
+ 
+   END_WHILE
+END
